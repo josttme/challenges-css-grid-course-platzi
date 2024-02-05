@@ -1,0 +1,167 @@
+---
+export interface Props {
+  title: string;
+  code: string;
+}
+
+const { title, code } = Astro.props;
+---
+
+<section class="container">
+  <div>
+    <h2 class="title">{title}</h2>
+  </div>
+  <div class="container-grid">
+    <slot class="challenge" />
+    <div class="code container-pre">
+      <pre>
+        <code class="language-css">
+          {code}
+        </code>
+      </pre>
+    </div>
+  </div>
+</section>
+
+<style>
+  .container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #0500461c;
+    /*  background-color: #1d1f21; */
+    border-radius: 20px;
+    border: solid 0.01px #4bf;
+
+    .container-grid {
+      width: 100%;
+      overflow: hidden;
+      white-space: normal;
+      display: grid;
+      gap: 10px;
+      /*   grid-template-columns: repeat(auto-fit, minmax(300px, 100%)); */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      pre {
+        margin: 0;
+        padding: 0;
+        padding-left: 2rem;
+        width: 100%;
+        justify-self: center;
+        code {
+          max-width: 100%;
+          width: 100%;
+          word-wrap: break-word;
+          overflow: hidden;
+          white-space: normal;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+  .title {
+    grid-area: title;
+    margin-top: 3rem;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .container-pre {
+    display: grid;
+    justify-self: center;
+    /* Dark mode para <pre><code> */
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: #ccc;
+      background: #2d2d2d00;
+      text-shadow: 0 0px rgb(0, 19, 70);
+    }
+
+    /* Highlight linea actual */
+    pre[class*="language-"] .line-highlight {
+      background: rgb(0, 0, 0);
+    }
+
+    /* Fondo */
+    pre,
+    pre[class*="language-"] {
+      background: #ffffff00;
+    }
+
+    /* Código en línea */
+    :not(pre) > code[class*="language-"] {
+      background: #1d1f21;
+    }
+
+    /* Token */
+    .token.punctuation,
+    .token.operator {
+      color: #ccc;
+    }
+
+    /* Comentarios */
+    .token.comment {
+      color: #999;
+    }
+
+    /* Otros colores */
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string {
+      color: #9ccc65;
+    }
+
+    /* Palabras clave */
+    .token.atrule,
+    .token.keyword {
+      color: #cc99cd;
+    }
+
+    /* Variables */
+    .token.variable {
+      color: #7ec699;
+    }
+    /* Selectores CSS */
+    .token.selector {
+      color: rgb(255, 187, 98);
+    }
+
+    /* Selectores de id */
+    .token.selector .token.id {
+      color: #fd4;
+    }
+
+    /* Pseudo-clases y pseudo-elementos */
+    .token.selector .token.pseudo-class,
+    .token.selector .token.pseudo-element {
+      color: #23b9ff;
+    }
+
+    /* Clases */
+    .token.selector .token.class {
+      color: #ee4;
+    }
+
+    /* Propiedades */
+    .token.property {
+      color: #00aeff;
+    }
+
+    /* Valores */
+    .token.number,
+    .token.function,
+    .token.selector .token.attribute {
+      color: #ce9178;
+    }
+    /* Color de fondo al seleccionar todo el código */
+    pre code::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      background: #0f327250;
+    }
+
+    code[class*="language-"] .token.string {
+      background: transparent;
+    }
+  }
+</style>

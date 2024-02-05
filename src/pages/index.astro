@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Challenge1 from "../components/Challenge-1.astro";
+import Challenge2 from "../components/Challenge-2.astro";
+import Challenge3 from "../components/Challenge-3.astro";
+import Challenge4 from "../components/Challenge-4.astro";
+---
+
+<Layout title="Retos de CSS Grid del curso de Platzi">
+  <header>
+    <h1>Retos de CSS Grid del curso de Platzi</h1>
+    <div>
+      <a
+        href="https://platzi.com/cursos/css-grid/"
+        target="_blank"
+        rel="noopener noreferrer">Curso de CSS Grid de Platzi</a
+      >
+    </div>
+  </header>
+  <main>
+    <Challenge1 />
+    <Challenge2 />
+    <Challenge3 />
+    <h2>Proyecto</h2>
+    <Challenge4 />
+  </main>
+</Layout>
+
+<style>
+  header {
+    h1 {
+      text-align: center;
+      margin: 5rem 0 2rem;
+    }
+
+    div {
+      display: grid;
+      justify-content: center;
+      margin-bottom: 2rem;
+      a {
+        color: #c5c5c5;
+        text-align: center;
+      }
+      a:hover {
+        color: #0ae98a;
+      }
+    }
+  }
+  main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    h2 {
+      text-align: center;
+      margin: 1rem 0;
+    }
+  }
+</style>

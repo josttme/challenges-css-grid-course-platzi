@@ -1,0 +1,56 @@
+---
+import ChallengeContainer from "./ChallengeContainer.astro";
+const code = `
+section {
+  width: 100%;
+  height: 500px;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 150px 150px;
+  grid-auto-rows: 150px;
+  gap: 50px;
+
+  div {
+    background: #0071cf;
+    display: inherit;
+    place-content: end;
+
+    span {
+      background: #1b99ff;
+      width: 50px;
+      height: 75px;
+    }
+  }
+}`;
+---
+
+<ChallengeContainer title="Reto 2" code={code}>
+  <section>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+    <div><span></span></div>
+  </section>
+</ChallengeContainer>
+<style>
+  section {
+    max-height: 500px;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 8rem 8rem;
+    grid-auto-rows: 8rem;
+    gap: 3rem;
+
+    div {
+      background: #0071cf;
+      display: inherit;
+      place-content: end;
+
+      span {
+        background: #1b99ff;
+        width: 3rem;
+        height: 4.5rem;
+      }
+    }
+  }
+</style>
